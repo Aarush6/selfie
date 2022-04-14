@@ -1,55 +1,46 @@
-
+<!DOCTYPE html>
 <html>
+<head>
+<style>
+body{
+	background-image: url("concrete-road.jpg");
+    background-position: center;
+    background-size: cover;
+}
+#myCanvas
+{
+    margin-top: 30px;
+	border-width:10px;
+	background-color: white; 
+	border-style:ridge;
+}
 
-    <head>
-        <title>My Selfie App</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-    
-        <link href="style.css" rel="stylesheet">
-    
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.26/webcam.js" type="text/javascript"></script>
-    
-    </head>
-    
-    <body>
-        <center>
-            <h1 id="meh">Collage Web App </h1>
-            <hr>
-            <h4 id="dead">Please press allow as soon as popup comes. After you give a voice command</h4>
-    
-            <h3>Say "selfie" for Taking your selfie to make a Collage</h3>
-    
-            <button class="btn btn-lg btn-primary" onclick="start()">Start</button>
-            <h4 id="alive">Press the Start button</h4>
-    
-            <label>Your webcam : </label>
-            <div id="camera"></div>
-    
-            <br>
-    
-            <label>Your selife Will Display Here: </label>
-            <br>
-            <div id="resultRow">
-                <div id="result1" class="column">
-                    <img class="stuff" src="https://unsplash.com/photos/F3Dde_9thd8/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQzOTUxMTU0&force=true">
-                </div>
-    
-                <div id="result2" class="column">
-                    <img class="stuff" src="https://unsplash.com/photos/dozkVhDyvhQ/download?force=true">
-                </div>
-    
-                <div id="result3" class="column">
-                    <img class="stuff" src="https://unsplash.com/photos/N10auyEVst8/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQzOTUxMjA2&force=true">
-                </div>
-            </div>
-        </center>
-        <div id="nombre">Aarush</div>
-    
-        <script src="main.js"></script>
-    </body>
-    
-    </html>
-    
+h1,h3,h4
+{
+	color: rgb(255, 241, 43) !important;
+}
+</style>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<title>Valet Parking </title>
+</head>
+<body onload="add();">
+
+<center>
+<h1>Valet Parking</h1>
+<h3>Move the green car with arrow keys</h3>
+<h4>
+	<b class="text-danger">NOTE : </b> IF CAR IS NOT VISIBLE PRESS ANY ARROW KEY
+</h4>
+
+	<canvas id="myCanvas" width="800" height="400"></canvas>
+
+
+</center>
+<script src="main.js">
+</script>
+</body>
+</html>

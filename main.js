@@ -1,30 +1,104 @@
-var SpeechRecognition=window.webkitSpeechRecognition;
-var Recognition = new SpeechRecognition();
-function start(){
-    document.getElementById("textbox").innerHTML="";
-    Recognition.start();
+canvas = document.getElementById('myCanvas');
+ctx = canvas.getContext("2d");
 
-}
-Recognition.onresult=function(event){
-    console.log(event);
-    var content = event.results[0][0].transcript;
-    console.log(content);
-    document.getElementById("textbox").innerHTML=content;
- speak();  
-}
-function speak(){
-    var synth = window.speechSynthesis;
-    var speech_data = document.getElementById("textbox").value;
-var Utterthis = new SpeechSynthesisUtterance(speech_data);
-synth.speak(Utterthis);
-Webcam.attach(camera);
+greencar_width = 75;
+greencar_height = 100;
+background_image = "parkingLot.jpg";
+greencar_image = "car2.png";
+
+greencar_x = 5;
+greencar_y = 225;
+function add() {
+background_imgTag = new Image();
+background_imgTag.onload = uploadBackground;
+background_imgTag.src = background_image;
+
+greencar_imgTag = new Image();
+greencar_imgTag.onload = uploadgreencar;
+greencar_imgTag.src = greencar_image;
 }
 
-Webcam.set({
-    width:360,
-    height:250,
-    image_format:"png",
-    png_quality:90
+function uploadBackground() {
+ctx.drawImage(background_imgTag, 0, 0, canvas.width, canvas.height);
+}
 
-});
-var camera=document.getElementById("camera");
+function uploadgreencar() {
+ctx.drawImage(greencar_imgTag, greencar_x,greencar_y, greencar_width, greencar_height);
+	
+}
+
+
+window.addEventListener("keydown", my_keydown);
+
+function my_keydown(e)
+{
+	keyPressed = e.keyCode;
+	console.log(keyPressed);
+		if(keyPressed == '38')
+		{
+			up();
+			console.log("up");
+		}
+	
+		if(keyPressed == '40')
+		{
+			down();
+			console.log("down");
+		}
+		
+		if(keyPressed == '37')
+		{
+			left();
+			console.log("left");
+		}
+	
+		if(keyPressed == '39')
+		{
+			right();
+			console.log("right");
+		}
+		
+		
+}
+
+function up()
+{
+if(greencar_y >=0)
+{
+	greencar_y = greencar_y - 10;
+    console.log("When up arrow is pressed, x = " + greencar_x + " | y = " +greencar_y);
+	uploadBackground();
+	uploadgreencar();
+}
+
+}
+
+function down()
+{
+	if(greencar_y <=300)
+	{
+		greencar_y = greencar_y + 10;
+		console.log("When up arrow is pressed, x = " + greencar_x + " | y = " +greencar_y);
+		uploadBackground();
+		uploadgreencar();
+	}}
+
+function left()
+{
+	if(greencar_x >=0)
+	{
+		greencar_x = greencar_x - 10;
+		console.log("When up arrow is pressed, x = " + greencar_x + " | y = " +greencar_y);
+		uploadBackground();
+		uploadgreencar();
+	}}
+
+function right()
+{
+	if(greencar_x <=700)
+	{
+		greencar_x = greencar_x + 10;
+		console.log("When up arrow is pressed, x = " + greencar_x + " | y = " +greencar_y);
+		uploadBackground();
+		uploadgreencar();
+	}}
